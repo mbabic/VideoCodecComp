@@ -2,6 +2,7 @@
 # HEVC encoder test script.
 # Assumes *nix-like environment (originally implemented to be run cygwin)
 
+# Configuration variables. #####################################################
 # Path to test .yuv files. 
 _yuv_files="./yuv/*"
 
@@ -14,20 +15,41 @@ _hm_hevc_cfg="./cfg/hm_hevc/"
 # Path to HM HEVC output folder.
 _hm_hevc_out="./out/hm_hevc"
 
+_results_dir="./results"
+
 # Path to HM HEVC non-file-specific config file.
 _hm_hevc_global_cfg="./cfg/hm_hevc/encoder_randomaccess_main10.cfg"
 
 # Path to x.265 configuration files.
 _x265_cfg="./cfg/x265/"
 
+# Target bitrates in bits per second.
+declare -a _bitrates=("5000000", "10000000", "20000000")
+
+# /Configuration variables. ####################################################
+
+
+
+# Echo to output file.
+record() {
+
+	echo $1 >> $2
+}
+
+
+
+
 # Encode a .yuv file using the HM HEVC implementation and write the results to
 # an appropriate file. 
 # @param $1 - The path to the .yuv file to be encoded.
 hm_hevc_test() {
 
-	echo "------------ Testing HEVC Reference Implementation ------------"
-	echo ""	
-	
+
+	results_file="$_results_dir/hm_hevc_results.txt"
+
+	record "------------ Testing HEVC Reference Implementation ------------" $results_file
+	record "" $results_file	
+
 	# Get filename from $1
 	tmp=$(echo $1 | awk -F\\ '{print $(NF)}')
 	filename=$(echo $tmp | awk -F/ '{print $(NF)}')
@@ -39,15 +61,31 @@ hm_hevc_test() {
 	name=$(echo $filename | cut -d . -f 1)
 	cfg=$_hm_hevc_cfg$name.cfg
 
-	# Specify the name and location of the output file to be generated.
-	out=$_hem_hevc_out$name.decoded
+	# Iterate over all target bitrates.
+	for bitrate in "${_bitrates[@]}"
+	do
 
-	exec_str="$_hm_hevc_encoder -i $1 -c $cfg -c $_hm_hevc_global_cfg"
+		# Specify new bitrate in the configuration file.
+		sed "s/^\(C:\).*$/\1$bitrate/" $cfg		
 
-	echo $exec_str
+		# Specify the name and location of the output file to be generated.
+		out=$_hem_hevc_out$name.decoded
 
-	eval "$exec_str"
+		exec_str="$_hm_hevc_encoder -i $1 -b $out -c $cfg -c $_hm_hevc_global_cfg"
 
+		# Start timer.
+		START=$(data +%s.%N)
+
+		eval "$exec_str" >> $results_file
+
+		# End timer.
+		END=$(date +%s.%N)
+
+		RUN_TIME=$(echo "$END - $START" | bc)
+		record $RUN_TIME $results_file
+
+		record "---------------------------------------------------------------" $results_file
+	done
 } 
 
 # Iterate over all test files.
