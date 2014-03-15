@@ -1,2 +1,6 @@
 # Ignore video files.
-*.yuv
+yuv/*.yuv
+
+# Ignore backup files.
+*~
+*.swp
