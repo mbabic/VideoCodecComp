@@ -1,0 +1,15 @@
+list on administrative page
+be consistent between screens
+make sure to finish early
+
+
+sort by category
+admin for pets
+fixing signup
+
+
+---------
+
+
+for acceptance testing, send sample e-mail  
+
