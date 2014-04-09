@@ -23,8 +23,8 @@ _hm_hevc_global_cfg="./cfg/hm_hevc/encoder_randomaccess_main10.cfg"
 # Path to x.265 configuration files.
 _x265_cfg="./cfg/x265/"
 
-# Target bitrates in bits per second.
-declare -a _bitrates=("5000000", "10000000", "20000000")
+# Target quantization parameter values.
+declare -a _qps=("50" "32" "27")
 
 # /Configuration variables. ####################################################
 
@@ -62,27 +62,33 @@ hm_hevc_test() {
 	cfg=$_hm_hevc_cfg$name.cfg
 
 	# Iterate over all target bitrates.
-	for bitrate in "${_bitrates[@]}"
+	for QP in "${_qps[@]}"
 	do
 
 		# Specify new bitrate in the configuration file.
-		sed "s/^\(C:\).*$/\1$bitrate/" $cfg		
-
+		sed -i "s/\(QP[[:space:]]*:[[:space:]]*\).*/\1$QP/" $cfg		
 		# Specify the name and location of the output file to be generated.
-		out=$_hem_hevc_out$name.decoded
+		bin_out=$_hm_hevc_out$name.bin
 
-		exec_str="$_hm_hevc_encoder -i $1 -b $out -c $cfg -c $_hm_hevc_global_cfg"
+		rec_out="$_hm_hevc_out$name""_rec.yuv"
+
+		echo $rec_out
+		echo $bin_out
+
+		cat $cfg 
+
+		exec_str="$_hm_hevc_encoder -i $1 -o $rec_out -b $bin_out -c $cfg -c $_hm_hevc_global_cfg"
 
 		# Start timer.
-		START=$(data +%s.%N)
+		#START=$(data +%s.%N)
 
 		eval "$exec_str" >> $results_file
 
 		# End timer.
-		END=$(date +%s.%N)
+		#END=$(date +%s.%N)
 
-		RUN_TIME=$(echo "$END - $START" | bc)
-		record $RUN_TIME $results_file
+		#RUN_TIME=$(echo "$END - $START" | bc)
+		#record $RUN_TIME $results_file
 
 		record "---------------------------------------------------------------" $results_file
 	done

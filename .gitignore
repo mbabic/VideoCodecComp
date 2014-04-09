@@ -7,3 +7,5 @@ out/*
 # Ignore backup files.
 *~
 *.swp
+*.yuv
+*.bin
