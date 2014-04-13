@@ -1,0 +1,304 @@
+------------ Testing x265 ------------
+
+
+Syntax: x265 [options] infile [-o] outfile
+    infile can be YUV or Y4M
+    outfile is raw HEVC bitstream
+
+Executable Options:
+-h/--h                           Show this help text and exit
+-V/--version                     Show version info and exit
+   --[no-]asm <bool|int|string>  Override CPU detection. Default: auto
+   --threads <integer>           Number of threads for thread pool (0: detect CPU core count, default)
+-F/--frame-threads <integer>     Number of concurrently encoded frames. 0: auto-determined by core count
+   --log-level <string>          Logging level: none error warning info debug full. Default info
+   --csv <filename>              Comma separated log file, log level >= 3 frame log, else one line per run
+   --no-progress                 Disable CLI progress reports
+-o/--output <filename>           Bitstream output file name
+
+Input Options:
+   --input <filename>            Raw YUV or Y4M input file name. `-` for stdin
+   --y4m                         Force parsing of input stream as YUV4MPEG2 regardless of file extension
+   --input-depth <integer>       Bit-depth of input file. Default 8
+   --input-res WxH               Source picture size [w x h], auto-detected if Y4M
+   --input-csp <string>          Source color space: i420 or i444, auto-detected if Y4M. Default: i420
+   --fps <float|rational>        Source frame rate (float or num/denom), auto-detected if Y4M
+   --seek <integer>              First frame to encode
+
+Presets:
+-f/--frames <integer>            Maximum number of frames to encode. Default all
+-p/--preset <string>             Trade off performance for compression efficiency. Default medium
+                                     ultrafast, veryfast, faster, fast, medium, slow, slower, veryslow, or placebo
+-t/--tune <string>               Tune the settings for a particular type of source or situation:
+                                     psnr, ssim, zerolatency, or fastdecode
+
+Quality reporting metrics:
+   --[no-]ssim                   Enable reporting SSIM metric scores. Default disabled
+   --[no-]psnr                   Enable reporting PSNR metric scores. Default disabled
+
+Quad-Tree analysis:
+   --[no-]wpp                    Enable Wavefront Parallel Processing. Default enabled
+-s/--ctu <64|32|16>              Maximum CU size (default: 64x64). Default 64
+   --tu-intra-depth <integer>    Max TU recursive depth for intra CUs. Default 1
+   --tu-inter-depth <integer>    Max TU recursive depth for inter CUs. Default 1
+
+Temporal / motion search options:
+   --me <string>                 Motion search method dia hex umh star full. Default 1
+-m/--subme <integer>             Amount of subpel refinement to perform (0:least .. 7:most). Default 2 
+   --merange <integer>           Motion search range. Default 57
+   --[no-]rect                   Enable rectangular motion partitions Nx2N and 2NxN. Default enabled
+   --[no-]amp                    Enable asymmetric motion partitions, requires --rect. Default enabled
+   --max-merge <1..5>            Maximum number of merge candidates. Default 2
+   --[no-]early-skip             Enable early SKIP detection. Default disabled
+   --[no-]fast-cbf               Enable Cbf fast mode. Default disabled
+
+Spatial / intra options:
+   --rdpenalty <0..2>            penalty for 32x32 intra TU in non-I slices. 0:disabled 1:RD-penalty 2:maximum. Default 0
+   --[no-]tskip                  Enable intra transform skipping. Default disabled
+   --[no-]tskip-fast             Enable fast intra transform skipping. Default disabled
+   --[no-]strong-intra-smoothing Enable strong intra smoothing for 32x32 blocks. Default enabled
+   --[no-]constrained-intra      Constrained intra prediction (use only intra coded reference pixels) Default disabled
+
+Slice decision options:
+   --[no-]open-gop               Enable open-GOP, allows I slices to be non-IDR. Default enabled
+-I/--keyint <integer>            Max IDR period in frames. -1 for infinite-gop. Default 250
+-i/--min-keyint <integer>        Scenecuts closer together than this are coded as I, not IDR. Default: auto
+   --no-scenecut                 Disable adaptive I-frame decision
+   --scenecut <integer>          How aggressively to insert extra I-frames. Default 40
+   --rc-lookahead <integer>      Number of frames for frame-type lookahead (determines encoder latency) Default 20
+   --bframes <integer>           Maximum number of consecutive b-frames (now it only enables B GOP structure) Default 4
+   --bframe-bias <integer>       Bias towards B frame decisions. Default 0
+   --b-adapt <0..2>              0 - none, 1 - fast, 2 - full (trellis) adaptive B frame scheduling. Default 2
+   --[no-]b-pyramid              Use B-frames as references. Default enabled
+   --ref <integer>               max number of L0 references to be allowed (1 .. 16) Default 3
+-w/--[no-]weightp                Enable weighted prediction in P slices. Default enabled
+
+Rate control and rate distortion options:
+   --bitrate <integer>           Target bitrate (kbps), implies ABR. Default 0
+   --crf <float>                 Quality-based VBR (0-51). Default 28.000000
+   --crf-max <float>             With CRF+VBV, limit RF to this value. 0 for no limit (default)
+                                  May cause VBV underflows!
+   --vbv-maxrate <integer>       Max local bitrate (kbit/s). Default 0
+   --vbv-bufsize <integer>       Set size of the VBV buffer (kbit). Default 0
+   --vbv-init <float>            Initial VBV buffer occupancy (fraction of bufsize or in kbits). Default 0.900000
+-q/--qp <integer>                Base QP for CQP mode. Default 32
+   --aq-mode <integer>           Mode for Adaptive Quantization - 0:none 1:uniform AQ 2:auto variance. Default 1
+   --aq-strength <float>         Reduces blocking and blurring in flat and textured areas.(0 to 3.0). Default 1.000000
+   --[no-]cutree                 Enable cutree for Adaptive Quantization. Default enabled
+   --cbqpoffs <integer>          Chroma Cb QP Offset. Default 0
+   --crqpoffs <integer>          Chroma Cr QP Offset. Default 0
+   --rd <0..6>                   Level of RD in mode decision 0:least....6:full RDO. Default 3
+   --[no-]signhide               Hide sign bit of one coeff per TU (rdo). Default enabled
+
+Loop filters (deblock and SAO):
+   --[no-]lft                    Enable Deblocking Loop Filter. Default enabled
+   --[no-]sao                    Enable Sample Adaptive Offset. Default enabled
+   --sao-lcu-bounds <integer>    0: right/bottom boundary areas skipped  1: non-deblocked pixels are used. Default 0
+   --sao-lcu-opt <integer>       0: SAO picture-based optimization, 1: SAO LCU-based optimization. Default 1
+
+VUI options:
+   --[no-]vui                    Add Video Useability Information with all fields to the SPS. Default disabled
+   --sar <width:height|int>      Sample Aspect Ratio, the ratio of width to height of an individual pixel.
+                                 Choose from 0=undef, 1=1:1("square"), 2=12:11, 3=10:11, 4=16:11,
+                                 5=40:33, 6=24:11, 7=20:11, 8=32:11, 9=80:33, 10=18:11, 11=15:11,
+                                 12=64:33, 13=160:99, 14=4:3, 15=3:2, 16=2:1 or custom ratio of <int:int>. Default 0
+   --crop-rect <string>          Add 'left,top,right,bottom' to the bitstream-level cropping rectangle
+   --overscan <string>           Specify whether it is appropriate for decoder to show cropped region: undef, show or crop. Default undef
+   --videoformat <string>        Specify video format from undef, component, pal, ntsc, secam, mac. Default undef
+   --range <string>              Specify black level and range of luma and chroma signals as full or limited Default limited
+   --colorprim <string>          Specify color primaries from undef, bt709, bt470m, bt470bg, smpte170m,
+                                 smpte240m, film, bt2020. Default undef
+   --transfer <string>           Specify transfer characteristics from undef, bt709, bt470m, bt470bg, smpte170m,
+                                 smpte240m, linear, log100, log316, iec61966-2-4, bt1361e, iec61966-2-1,
+                                 bt2020-10, bt2020-12. Default undef
+   --colormatrix <string>        Specify color matrix setting from undef, bt709, fcc, bt470bg, smpte170m,
+                                 smpte240m, GBR, YCgCo, bt2020nc, bt2020c. Default undef
+   --chromaloc <integer>         Specify chroma sample location (0 to 5). Default of 0
+   --[no-]fieldseq               Specify that pictures are fields and an SEI timing message
+                                 will be added to every access unit. Default disabled
+   --[no-]framefieldinfo         Specify that a pic-struct will be added to the SEI timing message. Default disabled
+   --[no-]timinginfo             Add timing information to the VUI. Defaut disabled
+   --[no-]hrd                    Signal HRD information. Default disabled
+   --nal-hrd <string>            Signal NAL HRD information (requires vbv-buffer size) Choose from none, vbr or cbr.Default none
+   --[no-]bitstreamrestriction   Add bit stream restriction fields to the VUI. Default disabled
+   --[no-]subpichrd              Add sub picture HRD parameters to the HRD. Default disabled
+
+Reconstructed video options (debugging):
+-r/--recon <filename>            Reconstructed raw image YUV or Y4M output file name
+   --recon-depth <integer>       Bit-depth of reconstructed raw image file. Defaults to input bit depth, or 8 if Y4M
+
+SEI options:
+   --hash <integer>              Decoded Picture Hash SEI 0: disabled, 1: MD5, 2: CRC, 3: Checksum. Default 0
+---------------------------------------------------------------
+
+Syntax: x265 [options] infile [-o] outfile
+    infile can be YUV or Y4M
+    outfile is raw HEVC bitstream
+
+Executable Options:
+-h/--h                           Show this help text and exit
+-V/--version                     Show version info and exit
+   --[no-]asm <bool|int|string>  Override CPU detection. Default: auto
+   --threads <integer>           Number of threads for thread pool (0: detect CPU core count, default)
+-F/--frame-threads <integer>     Number of concurrently encoded frames. 0: auto-determined by core count
+   --log-level <string>          Logging level: none error warning info debug full. Default info
+   --csv <filename>              Comma separated log file, log level >= 3 frame log, else one line per run
+   --no-progress                 Disable CLI progress reports
+-o/--output <filename>           Bitstream output file name
+
+Input Options:
+   --input <filename>            Raw YUV or Y4M input file name. `-` for stdin
+   --y4m                         Force parsing of input stream as YUV4MPEG2 regardless of file extension
+   --input-depth <integer>       Bit-depth of input file. Default 8
+   --input-res WxH               Source picture size [w x h], auto-detected if Y4M
+   --input-csp <string>          Source color space: i420 or i444, auto-detected if Y4M. Default: i420
+   --fps <float|rational>        Source frame rate (float or num/denom), auto-detected if Y4M
+   --seek <integer>              First frame to encode
+
+Presets:
+-f/--frames <integer>            Maximum number of frames to encode. Default all
+-p/--preset <string>             Trade off performance for compression efficiency. Default medium
+                                     ultrafast, veryfast, faster, fast, medium, slow, slower, veryslow, or placebo
+-t/--tune <string>               Tune the settings for a particular type of source or situation:
+                                     psnr, ssim, zerolatency, or fastdecode
+
+Quality reporting metrics:
+   --[no-]ssim                   Enable reporting SSIM metric scores. Default disabled
+   --[no-]psnr                   Enable reporting PSNR metric scores. Default disabled
+
+Quad-Tree analysis:
+   --[no-]wpp                    Enable Wavefront Parallel Processing. Default enabled
+-s/--ctu <64|32|16>              Maximum CU size (default: 64x64). Default 64
+   --tu-intra-depth <integer>    Max TU recursive depth for intra CUs. Default 1
+   --tu-inter-depth <integer>    Max TU recursive depth for inter CUs. Default 1
+
+Temporal / motion search options:
+   --me <string>                 Motion search method dia hex umh star full. Default 1
+-m/--subme <integer>             Amount of subpel refinement to perform (0:least .. 7:most). Default 2 
+   --merange <integer>           Motion search range. Default 57
+   --[no-]rect                   Enable rectangular motion partitions Nx2N and 2NxN. Default enabled
+   --[no-]amp                    Enable asymmetric motion partitions, requires --rect. Default enabled
+   --max-merge <1..5>            Maximum number of merge candidates. Default 2
+   --[no-]early-skip             Enable early SKIP detection. Default disabled
+   --[no-]fast-cbf               Enable Cbf fast mode. Default disabled
+
+Spatial / intra options:
+   --rdpenalty <0..2>            penalty for 32x32 intra TU in non-I slices. 0:disabled 1:RD-penalty 2:maximum. Default 0
+   --[no-]tskip                  Enable intra transform skipping. Default disabled
+   --[no-]tskip-fast             Enable fast intra transform skipping. Default disabled
+   --[no-]strong-intra-smoothing Enable strong intra smoothing for 32x32 blocks. Default enabled
+   --[no-]constrained-intra      Constrained intra prediction (use only intra coded reference pixels) Default disabled
+
+Slice decision options:
+   --[no-]open-gop               Enable open-GOP, allows I slices to be non-IDR. Default enabled
+-I/--keyint <integer>            Max IDR period in frames. -1 for infinite-gop. Default 250
+-i/--min-keyint <integer>        Scenecuts closer together than this are coded as I, not IDR. Default: auto
+   --no-scenecut                 Disable adaptive I-frame decision
+   --scenecut <integer>          How aggressively to insert extra I-frames. Default 40
+   --rc-lookahead <integer>      Number of frames for frame-type lookahead (determines encoder latency) Default 20
+   --bframes <integer>           Maximum number of consecutive b-frames (now it only enables B GOP structure) Default 4
+   --bframe-bias <integer>       Bias towards B frame decisions. Default 0
+   --b-adapt <0..2>              0 - none, 1 - fast, 2 - full (trellis) adaptive B frame scheduling. Default 2
+   --[no-]b-pyramid              Use B-frames as references. Default enabled
+   --ref <integer>               max number of L0 references to be allowed (1 .. 16) Default 3
+-w/--[no-]weightp                Enable weighted prediction in P slices. Default enabled
+
+Rate control and rate distortion options:
+   --bitrate <integer>           Target bitrate (kbps), implies ABR. Default 0
+   --crf <float>                 Quality-based VBR (0-51). Default 28.000000
+   --crf-max <float>             With CRF+VBV, limit RF to this value. 0 for no limit (default)
+                                  May cause VBV underflows!
+   --vbv-maxrate <integer>       Max local bitrate (kbit/s). Default 0
+   --vbv-bufsize <integer>       Set size of the VBV buffer (kbit). Default 0
+   --vbv-init <float>            Initial VBV buffer occupancy (fraction of bufsize or in kbits). Default 0.900000
+-q/--qp <integer>                Base QP for CQP mode. Default 32
+   --aq-mode <integer>           Mode for Adaptive Quantization - 0:none 1:uniform AQ 2:auto variance. Default 1
+   --aq-strength <float>         Reduces blocking and blurring in flat and textured areas.(0 to 3.0). Default 1.000000
+   --[no-]cutree                 Enable cutree for Adaptive Quantization. Default enabled
+   --cbqpoffs <integer>          Chroma Cb QP Offset. Default 0
+   --crqpoffs <integer>          Chroma Cr QP Offset. Default 0
+   --rd <0..6>                   Level of RD in mode decision 0:least....6:full RDO. Default 3
+   --[no-]signhide               Hide sign bit of one coeff per TU (rdo). Default enabled
+
+Loop filters (deblock and SAO):
+   --[no-]lft                    Enable Deblocking Loop Filter. Default enabled
+   --[no-]sao                    Enable Sample Adaptive Offset. Default enabled
+   --sao-lcu-bounds <integer>    0: right/bottom boundary areas skipped  1: non-deblocked pixels are used. Default 0
+   --sao-lcu-opt <integer>       0: SAO picture-based optimization, 1: SAO LCU-based optimization. Default 1
+
+VUI options:
+   --[no-]vui                    Add Video Useability Information with all fields to the SPS. Default disabled
+   --sar <width:height|int>      Sample Aspect Ratio, the ratio of width to height of an individual pixel.
+                                 Choose from 0=undef, 1=1:1("square"), 2=12:11, 3=10:11, 4=16:11,
+                                 5=40:33, 6=24:11, 7=20:11, 8=32:11, 9=80:33, 10=18:11, 11=15:11,
+                                 12=64:33, 13=160:99, 14=4:3, 15=3:2, 16=2:1 or custom ratio of <int:int>. Default 0
+   --crop-rect <string>          Add 'left,top,right,bottom' to the bitstream-level cropping rectangle
+   --overscan <string>           Specify whether it is appropriate for decoder to show cropped region: undef, show or crop. Default undef
+   --videoformat <string>        Specify video format from undef, component, pal, ntsc, secam, mac. Default undef
+   --range <string>              Specify black level and range of luma and chroma signals as full or limited Default limited
+   --colorprim <string>          Specify color primaries from undef, bt709, bt470m, bt470bg, smpte170m,
+                                 smpte240m, film, bt2020. Default undef
+   --transfer <string>           Specify transfer characteristics from undef, bt709, bt470m, bt470bg, smpte170m,
+                                 smpte240m, linear, log100, log316, iec61966-2-4, bt1361e, iec61966-2-1,
+                                 bt2020-10, bt2020-12. Default undef
+   --colormatrix <string>        Specify color matrix setting from undef, bt709, fcc, bt470bg, smpte170m,
+                                 smpte240m, GBR, YCgCo, bt2020nc, bt2020c. Default undef
+   --chromaloc <integer>         Specify chroma sample location (0 to 5). Default of 0
+   --[no-]fieldseq               Specify that pictures are fields and an SEI timing message
+                                 will be added to every access unit. Default disabled
+   --[no-]framefieldinfo         Specify that a pic-struct will be added to the SEI timing message. Default disabled
+   --[no-]timinginfo             Add timing information to the VUI. Defaut disabled
+   --[no-]hrd                    Signal HRD information. Default disabled
+   --nal-hrd <string>            Signal NAL HRD information (requires vbv-buffer size) Choose from none, vbr or cbr.Default none
+   --[no-]bitstreamrestriction   Add bit stream restriction fields to the VUI. Default disabled
+   --[no-]subpichrd              Add sub picture HRD parameters to the HRD. Default disabled
+
+Reconstructed video options (debugging):
+-r/--recon <filename>            Reconstructed raw image YUV or Y4M output file name
+   --recon-depth <integer>       Bit-depth of reconstructed raw image file. Defaults to input bit depth, or 8 if Y4M
+
+SEI options:
+   --hash <integer>              Decoded Picture Hash SEI 0: disabled, 1: MD5, 2: CRC, 3: Checksum. Default 0
+---------------------------------------------------------------
+------------ Testing x265 ------------
+
+------------ Testing x265 ------------
+
+
+encoded 100 frames in 38.31s (2.61 fps), 89.59 kb/s
+---------------------------------------------------------------
+
+encoded 100 frames in 60.03s (1.67 fps), 737.96 kb/s
+---------------------------------------------------------------
+------------ Testing x265 ------------
+
+
+encoded 100 frames in 20.32s (4.92 fps), 63.05 kb/s
+---------------------------------------------------------------
+
+encoded 100 frames in 28.02s (3.57 fps), 732.88 kb/s
+---------------------------------------------------------------
+------------ Testing x265 ------------
+
+
+encoded 100 frames in 15.38s (6.50 fps), 17.26 kb/s
+---------------------------------------------------------------
+
+encoded 100 frames in 23.73s (4.21 fps), 138.91 kb/s
+---------------------------------------------------------------
+------------ Testing x265 ------------
+
+
+encoded 100 frames in 19.38s (5.16 fps), 35.75 kb/s
+---------------------------------------------------------------
+
+encoded 100 frames in 26.74s (3.74 fps), 320.12 kb/s
+---------------------------------------------------------------
+------------ Testing x265 ------------
+
+
+encoded 100 frames in 40.71s (2.46 fps), 81.66 kb/s
+---------------------------------------------------------------
+
+encoded 100 frames in 56.70s (1.76 fps), 1036.32 kb/s
+---------------------------------------------------------------

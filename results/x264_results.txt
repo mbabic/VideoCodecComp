@@ -1,0 +1,283 @@
+yuv [info]: 704x576p 0:0 @ 60/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 3.1
+[1.0%] 1/100 frames, 10.99 fps, 20873.28 kb/s, eta 0:00:09  
+[13.0%] 13/100 frames, 36.11 fps, 3355.90 kb/s, eta 0:00:02  
+[28.0%] 28/100 frames, 44.73 fps, 2581.13 kb/s, eta 0:00:01  
+[41.0%] 41/100 frames, 46.75 fps, 2373.34 kb/s, eta 0:00:01  
+[58.0%] 58/100 frames, 50.70 fps, 2151.46 kb/s, eta 0:00:00  
+[76.0%] 76/100 frames, 53.56 fps, 1969.04 kb/s, eta 0:00:00  
+[97.0%] 97/100 frames, 57.67 fps, 1805.97 kb/s, eta 0:00:00  
+                                                                               
+x264 [info]: frame I:1     Avg QP:29.00  size: 43486
+x264 [info]: frame P:50    Avg QP:32.00  size:  4842
+x264 [info]: frame B:49    Avg QP:34.00  size:  1736
+x264 [info]: consecutive B-frames:  2.0% 98.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4:  4.7% 79.2% 16.0%
+x264 [info]: mb P  I16..4:  0.1%  1.2%  0.3%  P16..4: 28.5%  9.2%  5.5%  0.0%  0.0%    skip:55.1%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 39.6%  3.4%  1.0%  direct: 1.3%  skip:54.7%  L0:41.5% L1:52.4% BI: 6.0%
+x264 [info]: 8x8 transform intra:76.5% inter:70.4%
+x264 [info]: coded y,uvDC,uvAC intra: 83.9% 47.5% 26.4% inter: 10.6% 4.2% 0.1%
+x264 [info]: i16 v,h,dc,p: 40% 39%  6% 15%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 18% 23% 18%  5%  7%  7%  7%  7%  9%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 21% 25% 14%  6%  7%  6%  7%  6%  8%
+x264 [info]: i8c dc,h,v,p: 63% 15% 18%  4%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 62.8% 28.8%  5.6%  2.8%
+x264 [info]: ref B L0: 89.6% 10.4%
+x264 [info]: kb/s:1779.14
+
+encoded 100 frames, 58.93 fps, 1779.14 kb/s
+---------------------------------------------------------------
+------------ Testing x264 ------------
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+------------ Testing x264 ------------
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+------------ Testing x264 ------------
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+------------ Testing x264 ------------
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+------------ Testing x264 ------------
+
+---------------------------------------------------------------
+---------------------------------------------------------------
+yuv [info]: 704x576p 0:0 @ 60/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 3.1
+x264 [info]: frame I:1     Avg QP:47.00  size:  2401
+x264 [info]: frame P:55    Avg QP:50.00  size:   472
+x264 [info]: frame B:44    Avg QP:51.00  size:   191
+x264 [info]: consecutive B-frames: 12.0% 88.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4: 23.5% 76.3%  0.1%
+x264 [info]: mb P  I16..4:  3.0%  1.0%  0.0%  P16..4: 15.3%  0.2%  0.5%  0.0%  0                        .0%    skip:80.0%
+x264 [info]: mb B  I16..4:  0.8%  0.2%  0.0%  B16..8: 11.0%  0.0%  0.0%  direct:                         0.4%  skip:87.6%  L0: 9.6% L1:90.4% BI: 0.1%
+x264 [info]: 8x8 transform intra:38.5% inter:98.3%
+x264 [info]: coded y,uvDC,uvAC intra: 3.2% 22.5% 2.6% inter: 0.4% 3.8% 0.0%
+x264 [info]: i16 v,h,dc,p: 67% 21%  6%  6%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 51%  5% 39%  1%  1%  1%  1%  1%  1%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 46%  5% 33%  3%  6%  0%  1%  2%  3%
+x264 [info]: i8c dc,h,v,p: 89%  2%  8%  0%
+x264 [info]: Weighted P-Frames: Y:38.2% UV:25.5%
+x264 [info]: ref P L0: 76.1%  2.0% 12.5%  6.3%  3.2%
+x264 [info]: ref B L0: 57.4% 42.6%
+x264 [info]: kb/s:176.35
+
+encoded 100 frames, 114.55 fps, 176.35 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 704x576p 0:0 @ 60/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 3.1
+x264 [info]: frame I:1     Avg QP:29.00  size: 14943
+x264 [info]: frame P:55    Avg QP:32.00  size:  3617
+x264 [info]: frame B:44    Avg QP:34.00  size:  1572
+x264 [info]: consecutive B-frames: 12.0% 88.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4: 25.4% 50.5% 24.1%
+x264 [info]: mb P  I16..4:  2.0%  1.8%  0.5%  P16..4: 39.2%  7.6%  3.8%  0.0%  0                        .0%    skip:45.2%
+x264 [info]: mb B  I16..4:  3.0%  0.7%  0.2%  B16..8: 40.3%  1.7%  0.3%  direct:                         2.6%  skip:51.3%  L0:31.6% L1:66.9% BI: 1.5%
+x264 [info]: 8x8 transform intra:35.1% inter:79.4%
+x264 [info]: coded y,uvDC,uvAC intra: 32.8% 36.7% 13.7% inter: 12.2% 13.9% 0.3%
+x264 [info]: i16 v,h,dc,p: 63% 20%  7% 10%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 30% 14% 21%  5%  7%  7%  5%  6%  5%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 48% 15% 14%  3%  4%  5%  3%  3%  3%
+x264 [info]: i8c dc,h,v,p: 61%  9% 26%  4%
+x264 [info]: Weighted P-Frames: Y:38.2% UV:25.5%
+x264 [info]: ref P L0: 55.8% 20.3% 12.7%  6.5%  4.7%
+x264 [info]: ref B L0: 84.0% 16.0%
+x264 [info]: kb/s:1358.66
+
+encoded 100 frames, 54.17 fps, 1358.66 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:2     Avg QP:47.00  size:  1506
+x264 [info]: frame P:70    Avg QP:50.00  size:   511
+x264 [info]: frame B:28    Avg QP:51.00  size:   292
+x264 [info]: consecutive B-frames: 44.0% 56.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4: 14.1% 80.4%  5.4%
+x264 [info]: mb P  I16..4:  4.8%  5.6%  0.1%  P16..4: 29.4%  3.1%  1.5%  0.0%  0                        .0%    skip:55.4%
+x264 [info]: mb B  I16..4:  0.1%  0.1%  0.0%  B16..8: 33.6%  1.6%  0.0%  direct:                         0.9%  skip:63.7%  L0:39.2% L1:60.2% BI: 0.6%
+x264 [info]: 8x8 transform intra:58.8% inter:94.1%
+x264 [info]: coded y,uvDC,uvAC intra: 16.4% 47.3% 12.1% inter: 3.9% 12.0% 0.2%
+x264 [info]: i16 v,h,dc,p: 43% 34%  9% 14%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  8%  7% 58%  4%  6%  6%  5%  4%  3%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 17% 14% 37%  8%  6%  5%  6%  4%  3%
+x264 [info]: i8c dc,h,v,p: 88%  4%  7%  1%
+x264 [info]: Weighted P-Frames: Y:27.1% UV:20.0%
+x264 [info]: ref P L0: 75.6%  3.2% 12.1%  6.4%  2.7%
+x264 [info]: ref B L0: 88.1% 11.9%
+x264 [info]: kb/s:112.67
+
+encoded 100 frames, 254.45 fps, 112.67 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:2     Avg QP:29.00  size:  9621
+x264 [info]: frame P:70    Avg QP:32.00  size:  4333
+x264 [info]: frame B:28    Avg QP:34.00  size:  2690
+x264 [info]: consecutive B-frames: 44.0% 56.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4: 11.6% 63.4% 25.0%
+x264 [info]: mb P  I16..4:  1.2% 12.1%  6.4%  P16..4: 28.7% 19.5% 10.6%  0.0%  0.0%    skip:21.4%
+x264 [info]: mb B  I16..4:  0.0%  1.5%  1.1%  B16..8: 33.5% 25.5%  9.6%  direct: 4.0%  skip:24.7%  L0:35.2% L1:40.7% BI:24.2%
+x264 [info]: 8x8 transform intra:61.4% inter:61.5%
+x264 [info]: coded y,uvDC,uvAC intra: 85.8% 82.0% 59.4% inter: 34.8% 26.1% 4.0%
+x264 [info]: i16 v,h,dc,p: 10% 79%  3%  9%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 11% 23% 12%  6% 10% 10% 10%  8% 11%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 19% 13%  7% 11% 10% 10%  7%  8%
+x264 [info]: i8c dc,h,v,p: 53% 18% 20%  9%
+x264 [info]: Weighted P-Frames: Y:27.1% UV:20.0%
+x264 [info]: ref P L0: 61.5% 21.3% 11.6%  4.4%  1.2%
+x264 [info]: ref B L0: 93.8%  6.2%
+x264 [info]: kb/s:954.84
+
+encoded 100 frames, 121.80 fps, 954.84 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:1     Avg QP:47.00  size:  1593
+x264 [info]: frame P:49    Avg QP:50.00  size:   214
+x264 [info]: frame B:50    Avg QP:51.00  size:    78
+x264 [info]: consecutive B-frames:  2.0% 92.0%  6.0%  0.0%
+x264 [info]: mb I  I16..4: 40.4% 55.8%  3.8%
+x264 [info]: mb P  I16..4:  1.5%  0.9%  0.0%  P16..4: 25.6%  1.1%  0.7%  0.0%  0.0%    skip:70.3%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 18.2%  0.0%  0.0%  direct: 0.0%  skip:81.7%  L0:25.9% L1:74.1% BI: 0.1%
+x264 [info]: 8x8 transform intra:46.3% inter:96.5%
+x264 [info]: coded y,uvDC,uvAC intra: 10.7% 24.9% 2.7% inter: 0.6% 1.4% 0.0%
+x264 [info]: i16 v,h,dc,p: 39% 36% 10% 15%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  8%  9% 44%  2% 16%  5%  8%  2%  6%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 15% 18% 42%  3% 13%  0%  3%  0%  7%
+x264 [info]: i8c dc,h,v,p: 95%  3%  2%  0%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 76.8%  1.2% 16.2%  5.8%
+x264 [info]: ref B L0: 88.0% 12.0%
+x264 [info]: ref B L1: 99.6%  0.4%
+x264 [info]: kb/s:38.39
+
+encoded 100 frames, 413.22 fps, 38.39 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:1     Avg QP:29.00  size:  7367
+x264 [info]: frame P:49    Avg QP:32.00  size:  1300
+x264 [info]: frame B:50    Avg QP:33.96  size:   472
+x264 [info]: consecutive B-frames:  2.0% 92.0%  6.0%  0.0%
+x264 [info]: mb I  I16..4: 13.6% 47.2% 39.1%
+x264 [info]: mb P  I16..4:  0.3%  1.9%  0.7%  P16..4: 34.2% 15.9%  6.7%  0.0%  0.0%    skip:40.5%
+x264 [info]: mb B  I16..4:  0.0%  0.1%  0.1%  B16..8: 48.3%  6.2%  1.0%  direct: 1.1%  skip:43.3%  L0:37.4% L1:57.7% BI: 4.9%
+x264 [info]: 8x8 transform intra:58.0% inter:70.0%
+x264 [info]: coded y,uvDC,uvAC intra: 73.6% 67.8% 31.9% inter: 10.5% 5.9% 0.4%
+x264 [info]: i16 v,h,dc,p: 30% 21% 19% 31%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 10% 15% 11%  5% 17% 11% 12%  7% 11%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 14% 19% 16%  4% 19%  7% 10%  3%  8%
+x264 [info]: i8c dc,h,v,p: 55% 19% 19%  7%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 63.8% 21.1%  9.7%  5.4%
+x264 [info]: ref B L0: 86.8% 13.1%  0.0%
+x264 [info]: ref B L1: 99.4%  0.6%
+x264 [info]: kb/s:227.29
+
+encoded 100 frames, 209.64 fps, 227.29 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:1     Avg QP:47.00  size:  4641
+x264 [info]: frame P:50    Avg QP:50.00  size:   344
+x264 [info]: frame B:49    Avg QP:51.00  size:   152
+x264 [info]: consecutive B-frames:  2.0% 98.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4:  9.6% 57.6% 32.8%
+x264 [info]: mb P  I16..4:  0.1%  0.1%  0.0%  P16..4: 36.6%  1.5%  1.3%  0.0%  0.0%    skip:60.3%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 40.7%  0.1%  0.0%  direct: 0.0%  skip:59.2%  L0:44.2% L1:55.8% BI: 0.1%
+x264 [info]: 8x8 transform intra:57.7% inter:87.3%
+x264 [info]: coded y,uvDC,uvAC intra: 52.8% 68.2% 48.4% inter: 1.2% 6.9% 0.9%
+x264 [info]: i16 v,h,dc,p: 27% 32% 29% 13%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 18% 20% 28%  6%  5%  5%  8%  4%  6%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 32% 23% 18%  5%  5%  5%  5%  3%  3%
+x264 [info]: i8c dc,h,v,p: 75% 12% 11%  2%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 81.7%  3.7% 12.6%  2.0%
+x264 [info]: ref B L0: 93.7%  6.3%
+x264 [info]: kb/s:70.22
+
+encoded 100 frames, 302.11 fps, 70.22 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 352x288p 0:0 @ 30/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 1.3
+x264 [info]: frame I:1     Avg QP:29.00  size: 26043
+x264 [info]: frame P:50    Avg QP:32.00  size:  4280
+x264 [info]: frame B:49    Avg QP:34.00  size:  1087
+x264 [info]: consecutive B-frames:  2.0% 98.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4:  3.3% 32.3% 64.4%
+x264 [info]: mb P  I16..4:  0.0%  0.0%  0.1%  P16..4: 37.0% 29.5% 23.4%  0.0%  0.0%    skip:10.0%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 41.2%  9.9%  3.2%  direct: 5.6%  skip:40.1%  L0:37.5% L1:35.3% BI:27.2%
+x264 [info]: 8x8 transform intra:32.0% inter:45.8%
+x264 [info]: coded y,uvDC,uvAC intra: 86.8% 87.3% 79.1% inter: 26.4% 22.7% 12.9%
+x264 [info]: i16 v,h,dc,p: 63% 31%  6%  0%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 15% 18% 19%  8%  7%  7%  8%  7% 10%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 25% 19% 14%  6%  7%  6%  9%  6%  6%
+x264 [info]: i8c dc,h,v,p: 52% 23% 20%  5%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 54.2%  9.2% 24.2% 12.4%
+x264 [info]: ref B L0: 66.2% 33.8%
+x264 [info]: kb/s:703.94
+
+encoded 100 frames, 165.29 fps, 703.94 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 704x576p 0:0 @ 60/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 3.1
+x264 [info]: frame I:1     Avg QP:47.00  size:  3440
+x264 [info]: frame P:50    Avg QP:50.00  size:   518
+x264 [info]: frame B:49    Avg QP:51.00  size:   297
+x264 [info]: consecutive B-frames:  2.0% 98.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4: 19.3% 77.9%  2.8%
+x264 [info]: mb P  I16..4:  0.9%  0.4%  0.0%  P16..4: 14.6%  0.7%  0.5%  0.0%  0.0%    skip:82.9%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 17.9%  0.1%  0.0%  direct: 0.0%  skip:81.9%  L0:19.3% L1:80.7% BI: 0.0%
+x264 [info]: 8x8 transform intra:59.1% inter:95.2%
+x264 [info]: coded y,uvDC,uvAC intra: 11.8% 21.7% 3.2% inter: 0.5% 1.0% 0.0%
+x264 [info]: i16 v,h,dc,p: 49% 34%  9%  8%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 32% 21% 33%  2%  2%  3%  2%  3%  2%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 26% 28% 24%  7%  2%  3%  3%  4%  3%
+x264 [info]: i8c dc,h,v,p: 93%  3%  4%  0%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 80.2%  1.9% 13.6%  4.4%
+x264 [info]: ref B L0: 84.2% 15.8%
+x264 [info]: kb/s:210.69
+
+encoded 100 frames, 109.77 fps, 210.69 kb/s
+run_tests.sh: line 46: $2: ambiguous redirect
+yuv [info]: 704x576p 0:0 @ 60/1 fps (cfr)
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT
+x264 [info]: profile High, level 3.1
+x264 [info]: frame I:1     Avg QP:29.00  size: 43486
+x264 [info]: frame P:50    Avg QP:32.00  size:  4842
+x264 [info]: frame B:49    Avg QP:34.00  size:  1736
+x264 [info]: consecutive B-frames:  2.0% 98.0%  0.0%  0.0%
+x264 [info]: mb I  I16..4:  4.7% 79.2% 16.0%
+x264 [info]: mb P  I16..4:  0.1%  1.2%  0.3%  P16..4: 28.5%  9.2%  5.5%  0.0%  0.0%    skip:55.1%
+x264 [info]: mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 39.6%  3.4%  1.0%  direct: 1.3%  skip:54.7%  L0:41.5% L1:52.4% BI: 6.0%
+x264 [info]: 8x8 transform intra:76.5% inter:70.4%
+x264 [info]: coded y,uvDC,uvAC intra: 83.9% 47.5% 26.4% inter: 10.6% 4.2% 0.1%
+x264 [info]: i16 v,h,dc,p: 40% 39%  6% 15%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 18% 23% 18%  5%  7%  7%  7%  7%  9%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 21% 25% 14%  6%  7%  6%  7%  6%  8%
+x264 [info]: i8c dc,h,v,p: 63% 15% 18%  4%
+x264 [info]: Weighted P-Frames: Y:0.0% UV:0.0%
+x264 [info]: ref P L0: 62.8% 28.8%  5.6%  2.8%
+x264 [info]: ref B L0: 89.6% 10.4%
+x264 [info]: kb/s:1779.14
+
+encoded 100 frames, 62.42 fps, 1779.14 kb/s
+
